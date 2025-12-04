@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Buscaminas</title>
+  <link rel="stylesheet" href="Stiles/style.css">
+  <script src="sweetalert2.all.min.js"></script>
+</head>
+
+<body oncontextmenu="return false">
+  <div style="margin-bottom: 10px; font-size: 20px;">
+  Jugador: <span id="nombre-jugador" style="font-weight: bold;">Anónimo</span>
+</div>
+
+<span id="juego-nuevo" onclick="nuevoJuego()">
+  Juego Nuevo
+</span>
+
+  <span id="minas">
+    000
+  </span>
+
+<span id="temporizador">
+  000
+</span>
+
+  <span id="Ajustes" onclick="ajustes()">
+    ⚙️
+  </span>
+
+  <table cellspacing="0" cellpadding="0" id="tablero">
+  </table>
+
+  <div class="salto">
+    <button class="btn-contacto" onclick="window.location.href='contacto.html'">CONTACTO</button>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
