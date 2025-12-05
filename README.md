@@ -5,3 +5,6 @@ Se creo el repositorio en GIT y se subio el Index.html mas el formulario de cont
 
 Desarrollado el formulario de contacto, con el css y el JavaScript que realiza las validaciones de los campos y envia el mail
 
+5/12/25
+
+Se re acomodo el codigo del script de contacto.js
