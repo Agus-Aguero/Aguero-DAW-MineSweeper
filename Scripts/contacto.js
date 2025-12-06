@@ -1,5 +1,5 @@
 'use strict'
-// 1. FUNCIONES AUXILIARES DE UI (Errores y Modal)
+// 1. FUNCIONES AUXILIARES
 
 function mostrarError(idElemento, mensaje) {
     var elementoError = document.getElementById(idElemento)
@@ -40,7 +40,7 @@ function mostrarModal(mensaje) {
     window.addEventListener('click', cerrarModalClickFuera)
 }
 
-// 2. LÓGICA DE ENVÍO (Mailto)
+// 2. LÓGICA DE ENVÍO DE MAIL (Mailto)
 
 function enviarPorMailto(nombre, apellido, email, mensaje) {
     var destinatario = 'agustin.aguero@alumnos.uai.edu.ar'
@@ -56,7 +56,7 @@ function enviarPorMailto(nombre, apellido, email, mensaje) {
     mostrarModal('Validación exitosa. Abriendo cliente de correo...')
 }
 
-// 3. MANEJADOR DEL FORMULARIO (Validación)
+// 3. VALIDACION DEL FORMULARIO
 
 function manejarSubmit(event) {
     event.preventDefault() // Detiene el envío automático
