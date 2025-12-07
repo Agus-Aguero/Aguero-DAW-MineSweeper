@@ -1,0 +1,116 @@
+
+ /* 1. SELECTOR UNIVERSAL */
+   
+* {
+  box-sizing: border-box;
+  transition: all 1s;
+}
+
+ /* 2. Etiquetas HTML*/
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #b0c4de;
+  font-family: 'Calibri', sans-serif;
+  user-select: none;
+}
+
+table {
+  margin: 20px 0;
+  background-color: #708090;
+}
+
+td {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  box-shadow: inset 3px 3px 0 0 rgba(255, 255, 255, 0.5),
+              inset -3px -3px 0 0 rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  text-align: center;
+  font-size: 120%;
+}
+
+
+/* 3. CLASES */
+   
+.contenedor-controles {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 10px;
+}
+
+.info-jugador {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.footer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.footer a {
+  display: inline-block;
+  padding: 10px 15px;
+  border: 2px solid #ffffff;
+  background-color: #c0c0c0; 
+  box-shadow: inset 3px 3px 0 0 rgba(255, 255, 255, 0.5),
+              inset -3px -3px 0 0 rgba(0, 0, 0, 0.5);
+  color: #000000; 
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  background-color: #dcdcdc;
+}
+
+.footer a:active {
+  box-shadow: inset 3px 3px 0 0 rgba(0, 0, 0, 0.5),
+              inset -3px -3px 0 0 rgba(255, 255, 255, 0.5);
+}
+
+
+ /*  4. IDs */
+   
+#juego-nuevo,
+#minas,
+#ajustes,
+#temporizador {
+  margin: 10px;
+  padding: 10px;
+  box-shadow: inset 3px 3px 0 0 rgba(255, 255, 255, 0.5),
+              inset -3px -3px 0 0 rgba(0, 0, 0, 0.5);
+}
+
+#juego-nuevo {
+  background-color: #87ceeb;
+  cursor: pointer;
+}
+
+#minas {
+  background-color: #000000;
+  color: #ff0000;
+}
+
+#temporizador {
+  background-color: #000000;
+  color: #ff0000;
+}
+
+#ajustes {
+  background-color: #eeeeee;
+  cursor: pointer;
+}
+
+#nombre-jugador {
+  font-weight: bold;
+}
