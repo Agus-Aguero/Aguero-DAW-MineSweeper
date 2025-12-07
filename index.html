@@ -3,39 +3,47 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buscaminas</title>
+  <link rel="stylesheet" href="Stiles/reset.css">
   <link rel="stylesheet" href="Stiles/style.css">
-  <script src="sweetalert2.all.min.js"></script>
 </head>
 
-<body oncontextmenu="return false">
-  <div style="margin-bottom: 10px; font-size: 20px;">
-  Jugador: <span id="nombre-jugador" style="font-weight: bold;">Anónimo</span>
-</div>
+<body>
+  <div class="info-jugador">
+    Jugador: <span id="nombre-jugador">Anónimo</span>
+  </div>
 
-<span id="juego-nuevo" onclick="nuevoJuego()">
-  Juego Nuevo
-</span>
-
-  <span id="minas">
-    000
-  </span>
-
-<span id="temporizador">
-  000
-</span>
-
-  <span id="Ajustes" onclick="ajustes()">
-    ⚙️
-  </span>
+  <div class="contenedor-controles">
+    <span id="juego-nuevo">
+      Juego Nuevo
+    </span>
+    <span id="minas">
+      000
+    </span>
+    <span id="temporizador">
+      000
+    </span>
+    <span id="ajustes">
+      ⚙️
+    </span>
+  </div>
 
   <table cellspacing="0" cellpadding="0" id="tablero">
   </table>
 
   <div class="salto">
-    <button class="btn-contacto" onclick="window.location.href='contacto.html'">CONTACTO</button>
+    <button id="btn-ir-contacto" class="btn-contacto">CONTACTO</button>
   </div>
 
-<script src="script.js"></script>
+  <div class="footer">
+    <a href="https://github.com/Agus-Aguero/Aguero-DAW-MineSweeper" target="_blank" rel="noopener noreferrer">
+       💻 Ver código en GitHub
+    </a>
+  </div>
+
+  <script src="Scripts/sweetalert2.all.min.js"></script>
+  <script src="Scripts/script.js"></script>
+  
 </body>
 </html>
