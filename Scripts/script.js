@@ -394,6 +394,7 @@ function iniciarEventosGlobales() {
     var btnNuevo = document.getElementById('juego-nuevo')
     var btnAjustes = document.getElementById('ajustes')
     var btnContacto = document.getElementById('btn-ir-contacto')
+    var btnTema = document.getElementById('tema')
     
     btnNuevo.addEventListener('click', nuevoJuego)
     btnAjustes.addEventListener('click', ajustes)
@@ -403,6 +404,10 @@ function iniciarEventosGlobales() {
             window.location.href = 'contacto.html'
         })
     }
+
+    if (btnTema) {
+        btnTema.addEventListener('click', cambiarTema)
+    }
     
     document.body.addEventListener('contextmenu', function(event) {
         event.preventDefault()
@@ -410,6 +415,20 @@ function iniciarEventosGlobales() {
     })
 }
 
+function cambiarTema() {
+    var cuerpo = document.body
+    var btnTema = document.getElementById('tema')
+    
+    cuerpo.classList.toggle('modo-oscuro')
+
+    if (cuerpo.classList.contains('modo-oscuro')) {
+        btnTema.innerHTML = '☀️' 
+        localStorage.setItem('tema', 'oscuro')
+    } else {
+        btnTema.innerHTML = '🌙'
+        localStorage.setItem('tema', 'claro')
+    }
+}
 
 // 9. INICIO DEL JUEGO
 
