@@ -17,14 +17,14 @@ var tablero = []
 var enJuego = true
 var juegoIniciado = false
 
-var sonido_ganador = new Audio('sonido_ganador.ogg')
-var sonido_win = new Audio('sonido_win.ogg')
-var sonido_perdedor = new Audio('sonido_perdedor.ogg')
-var sonido_gameover = new Audio('sonido_gameover.ogg')
-var sonido_descubrir = new Audio('sonido_descubrir.ogg')
-var sonido_juegonuevo = new Audio('sonido_nuevojuego.ogg')
-var sonido_abrirarea = new Audio('sonido_abrirarea.ogg')
-var sonido_marca = new Audio('sonido_marca.ogg')
+var sonido_ganador = new Audio('Sonidos/sonido_ganador.ogg')
+var sonido_win = new Audio('Sonidos/sonido_win.ogg')
+var sonido_perdedor = new Audio('Sonidos/sonido_perdedor.ogg')
+var sonido_gameover = new Audio('Sonidos/sonido_gameover.ogg')
+var sonido_descubrir = new Audio('Sonidos/sonido_descubrir.ogg')
+var sonido_juegonuevo = new Audio('Sonidos/sonido_nuevojuego.ogg')
+var sonido_abrirarea = new Audio('Sonidos/sonido_abrirarea.ogg')
+var sonido_marca = new Audio('Sonidos/sonido_marca.ogg')
 
 // 2. FUNCIONES AUXILIARES
 
