@@ -17,6 +17,14 @@ var tablero = []
 var enJuego = true
 var juegoIniciado = false
 
+var sonido_ganador = new Audio('sonido_ganador.ogg')
+var sonido_win = new Audio('sonido_win.ogg')
+var sonido_perdedor = new Audio('sonido_perdedor.ogg')
+var sonido_gameover = new Audio('sonido_gameover.ogg')
+var sonido_descubrir = new Audio('sonido_descubrir.ogg')
+var sonido_juegonuevo = new Audio('sonido_nuevojuego.ogg')
+var sonido_abrirarea = new Audio('sonido_abrirarea.ogg')
+var sonido_marca = new Audio('sonido_marca.ogg')
 
 // 2. FUNCIONES AUXILIARES
 
@@ -119,6 +127,8 @@ function verificarGanador() {
     tableroHTML.style.background = 'green'
     enJuego = false
     clearInterval(intervaloTiempo)
+    sonido_ganador.play()
+    sonido_win.play()
 
     Swal.fire({
         title: '¡Ganaste!',
@@ -138,6 +148,8 @@ function verificarPerdedor() {
                     tableroHTML.style.background = 'red'
                     enJuego = false
                     clearInterval(intervaloTiempo)
+                    sonido_perdedor.play()
+                    sonido_gameover.play()
 
                     Swal.fire({
                         title: '¡BOOM!',
@@ -172,6 +184,7 @@ function abrirArea(c, f) {
                 if (tablero[c + i][f + j].estado !== 'descubierto') {
                     if (tablero[c + i][f + j].estado !== 'marcado') {
                         tablero[c + i][f + j].estado = 'descubierto'
+                        sonido_abrirarea.play()
                         if (tablero[c + i][f + j].valor === 0) {
                             abrirArea(c + i, f + j)
                         }
@@ -260,6 +273,7 @@ function clicSimple(celda, c, f, me) {
                 generarTableroJuego()
             }
             tablero[c][f].estado = 'descubierto'
+            sonido_descubrir.play()
             if (juegoIniciado === false) {
                 iniciarTiempo()
             }
@@ -274,9 +288,11 @@ function clicSimple(celda, c, f, me) {
             if (tablero[c][f].estado === 'marcado') {
                 tablero[c][f].estado = undefined
                 marcas--
+                sonido_marca.play()
             } else {
                 tablero[c][f].estado = 'marcado'
                 marcas++
+                sonido_marca.play()
             }
             break
         default:
@@ -310,6 +326,7 @@ function reiniciarVariables() {
 }
 
 function nuevoJuego() {
+    sonido_juegonuevo.play()
     reiniciarVariables()
     generarTableroHTML()
     generarTableroJuego()
@@ -335,7 +352,21 @@ function aplicarAjustes(result) {
     nuevoJuego()
 }
 
-
+function ajustes() {
+    Swal.fire({
+        title: 'Selecciona la dificultad',
+        input: 'radio',
+        inputOptions: {
+            'facil': 'Fácil (8x8 - 10 minas)',
+            'medio': 'Medio (12x12 - 25 minas)',
+            'dificil': 'Difícil (16x16 - 40 minas)'
+        },
+        inputValue: 'facil',
+        confirmButtonText: 'Jugar',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar'
+    }).then(aplicarAjustes)
+}
 
 function iniciarJuegoConNombre(result) {
     var nombre = result.value
@@ -374,7 +405,7 @@ function iniciarEventosGlobales() {
     }
     
     document.body.addEventListener('contextmenu', function(event) {
-        event.preventDefault() // Esto evita que salga el menú contextual
+        event.preventDefault()
         return false
     })
 }
