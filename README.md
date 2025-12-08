@@ -45,18 +45,20 @@ Este proyecto es una recreación del clásico juego **Buscaminas**, desarrollado
 
 El proyecto tiene la siguiente estructura:
 
+```text
 /
-|── index.html          # Página principal del juego
-|── contacto.html       # Página del formulario de contacto
-|── README.md           # Documentación
-
-|── /Scripts
-    |── script.js       # Lógica principal del juego y eventos globales
-    |── contacto.js     #Todas las validaciones y envio de mail referenciado a contacto.html
-    |── sweetalert2.all.min.js #Librería externa
-
-|── /Stiles
-|   |── style.css       # Estilos generales y tema oscuro
-|   |── style-contacto.css   #Estilos para pagina contactos
-|   |── reset.css       # Normalización de estilos
-|── /Sonidos            #Carpeta con todos los archivos de sonidos utilizados
+├── index.html          # Página principal del juego
+├── contacto.html       # Página del formulario de contacto
+├── README.md           # Documentación
+│
+├── /Scripts
+│   ├── script.js             # Lógica principal del juego y eventos globales
+│   ├── contacto.js           # Validaciones y envío de mail
+│   └── sweetalert2.all.min.js # Librería externa
+│
+├── /Stiles
+│   ├── style.css             # Estilos generales y tema oscuro
+│   ├── style-contacto.css    # Estilos para pagina contactos
+│   └── reset.css             # Normalización de estilos
+│
+└── /Sonidos                  # Carpeta con todos los archivos de sonido
