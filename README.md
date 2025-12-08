@@ -4,17 +4,17 @@ Este proyecto es una recreación del clásico juego **Buscaminas**, desarrollado
 
 🔗 **[Para Jugar, dirigirse a GitHub Pages)](https://agus-aguero.github.io/Aguero-DAW-MineSweeper/)**
 
-## 🚀 Funcionalidades Principales
+## Funcionalidades Principales
 
 ### 🎮 Mecánica del Juego
 * **Tablero Dinámico:** Generación de la matriz de juego mediante JavaScript.
 * **Controles Clásicos:**
-    * 🖱️ **Clic Izquierdo:** Descubrir celda.
-    * 🖱️ **Clic Derecho:** Colocar/Quitar bandera (🚩).
+    *  **Clic Izquierdo:** Descubrir celda.
+    *  **Clic Derecho:** Colocar/Quitar bandera (🚩).
 * **Sistema de Dificultad:** Selección mediante menú modal.
-    * 🟢 Fácil (8x8 - 10 minas)
-    * 🟡 Medio (12x12 - 25 minas)
-    * 🔴 Difícil (16x16 - 40 minas)
+    *  Fácil (8x8 - 10 minas)
+    *  Medio (12x12 - 25 minas)
+    *  Difícil (16x16 - 40 minas)
 * **Temporizador y Contador:** Monitoreo de tiempo y minas restantes en tiempo real.
 * **Efectos de Sonido:** Audio para ganar, perder, clic y banderas.
 
@@ -45,16 +45,20 @@ Este proyecto es una recreación del clásico juego **Buscaminas**, desarrollado
 
 El proyecto tiene la siguiente estructura:
 
+```text
 /
 ├── index.html          # Página principal del juego
 ├── contacto.html       # Página del formulario de contacto
 ├── README.md           # Documentación
+│
 ├── /Scripts
-	├── script.js       # Lógica principal del juego y eventos globales
-	├── contacto.js	    #Todas las validaciones y envio de mail referenciado a contacto.html
-	├── sweetalert2.all.min.js # Librería externa
+│   ├── script.js             # Lógica principal del juego y eventos globales
+│   ├── contacto.js           # Validaciones y envío de mail
+│   └── sweetalert2.all.min.js # Librería externa
+│
 ├── /Stiles
-│   ├── style.css       # Estilos generales y tema oscuro
-	├── style-contacto.css  #Estilos para pagina contactos
-│   └── reset.css       # Normalización de estilos
-└── /Sonidos  #Carpeta con todos los archivos de sonidos utilizados
+│   ├── style.css             # Estilos generales y tema oscuro
+│   ├── style-contacto.css    # Estilos para pagina contactos
+│   └── reset.css             # Normalización de estilos
+│
+└── /Sonidos                  # Carpeta con todos los archivos de sonido
