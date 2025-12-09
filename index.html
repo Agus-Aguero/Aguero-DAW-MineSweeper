@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buscaminas</title>
   <link rel="stylesheet" href="Stiles/reset.css">
+  <link rel="stylesheet" href="Stiles/style-modal.css">
   <link rel="stylesheet" href="Stiles/style.css">
 </head>
 
@@ -35,6 +36,20 @@
   <table cellspacing="0" cellpadding="0" id="tablero">
   </table>
 
+  <div id="modal-sistema" class="modal oculto">
+    <div class="modal-contenido">
+      <h2 id="modal-titulo">Título</h2>
+      
+      <div id="modal-cuerpo">
+      </div>
+      
+      <div class="modal-footer">
+        <button id="btn-aceptar">Aceptar</button>
+        <button id="btn-cancelar" class="btn-rojo oculto">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
   <div class="footer">
     <a href="https://github.com/Agus-Aguero/Aguero-DAW-MineSweeper" target="_blank" rel="noopener noreferrer">
        💻 Ver código en GitHub
@@ -45,8 +60,29 @@
     </a>
   </div>
 
-  <script src="Scripts/sweetalert2.all.min.js"></script>
+  <div id="templates" class="oculto">
+
+    <div id="tpl-pedir-nombre">
+       <div class="grupo-input">
+          <input type="text" id="input-jugador-dinamico" placeholder="Nombre (min 3 letras)" class="input-modal">
+          <p id="error-modal-dinamico" class="error-message oculto">¡Mínimo 3 letras!</p>
+       </div>
+    </div>
+
+    <div id="tpl-ajustes">
+       <div class="grupo-input">
+          <label class="label-modal">Selecciona la Dificultad:</label>
+          <select id="select-dificultad-dinamico" class="input-modal">
+              <option value="facil">🟢 Fácil (8x8 - 10 minas)</option>
+              <option value="medio">🟡 Medio (12x12 - 25 minas)</option>
+              <option value="dificil">🔴 Difícil (16x16 - 40 minas)</option>
+          </select>
+       </div>
+    </div>
+
+  </div>
+
+  <script src="Scripts/modales.js"></script>
   <script src="Scripts/script.js"></script>
-  
 </body>
 </html>
