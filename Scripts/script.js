@@ -375,7 +375,8 @@ function pedirNombre() {
         var valor = input.value.trim()
 
         if (valor.length < 3) {
-            error.style.display = 'block'
+            error.classList.remove('oculto')
+            input.style.borderColor = 'red'
             error.textContent = '¡El nombre debe tener al menos 3 letras!'
         } else {
             nombreJugador = valor
