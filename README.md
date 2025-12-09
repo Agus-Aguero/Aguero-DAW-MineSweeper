@@ -54,7 +54,7 @@ El proyecto tiene la siguiente estructura:
 │   ├── contacto.js           # Validaciones y envío de mail
 │   └── modales.js            # Logica de los modales
 │
-├── /Stiles
+├── /Styles
 │   ├── style.css             # Estilos generales y tema oscuro
 │   ├── style-contacto.css    # Estilos para pagina contactos
 │   ├── style-modal.css       #Estilos para los modeales

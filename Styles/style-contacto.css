@@ -26,7 +26,7 @@ textarea {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   border-radius: 5px;
   resize: vertical;
   font-family: inherit;
@@ -55,32 +55,45 @@ button[type="submit"]:hover {
 
 /* 2. ESTILOS DE CLASES */
 
-.form-container {
+.btn-volver {
+  display: inline-block;
+  padding: 10px 30px;
+  border-radius: 8px;
+  background-color: #d9534f; 
+  color: #ffffff;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-volver:hover {
+  background-color: #c9302c;
+}
+
+.contenedor-formulario {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 }
 
-.form-column {
+.columna-formulario {
   display: flex;
   flex-direction: column;
   flex: 1;
   min-width: 300px;
 }
 
-.error-message {
+.mensaje-error {
   height: 16px;
   margin-top: 4px;
   color: #ff0000;
   font-size: 0.9em;
 }
 
-.form-submit {
+.contenedor-boton {
   margin-top: 20px;
   text-align: center;
 }
-
-/* --- Clases del Modal --- */
 
 .modal {
   display: flex;
@@ -119,10 +132,10 @@ button[type="submit"]:hover {
   display: none;
 }
 
+/* 3. MEDIA QUERIES */
 
-  /* 3. MEDIA QUERIES */
 @media (max-width: 768px) {
-  .form-container {
+  .contenedor-formulario {
     flex-direction: column;
   }
 }
