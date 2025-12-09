@@ -1,11 +1,8 @@
-/* =========================================
-   ESTILOS DEL SISTEMA DE MODALES
-   ========================================= */
+/*  ESTILOS DEL SISTEMA DE MODALES */
 
 /* --- Estructura Principal --- */
 
 #modal-sistema {
-  /* Position & Display */
   position: fixed;
   top: 0;
   left: 0;
@@ -13,35 +10,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Box Model */
   width: 100%;
   height: 100%;
-  /* Background */
   background-color: rgba(0, 0, 0, 0.7);
 }
 
 #modal-sistema .modal-contenido {
-  /* Box Model */
   max-width: 400px;
   width: 90%;
   padding: 25px;
   border: 2px solid #cccccc;
   border-radius: 8px;
-  /* Background */
   background-color: #ffffff;
-  /* Text */
   text-align: center;
-  /* Otros */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   animation: aparecer 0.3s ease-out;
 }
 
 #modal-titulo {
-  /* Box Model */
   margin-top: 0;
-  /* Text */
   color: #333333;
-  /* Fonts */
   font-size: 24px;
 }
 
@@ -49,84 +37,65 @@
 
 #modal-cuerpo input, 
 #modal-cuerpo select {
-  /* Box Model */
   box-sizing: border-box;
   width: 100%;
   padding: 10px;
   margin-top: 10px;
   border: 1px solid #999999;
   border-radius: 4px;
-  /* Fonts */
   font-size: 16px;
 }
 
 .grupo-input {
-  /* Box Model */
   margin-bottom: 15px;
 }
 
 .label-modal {
-  /* Display */
   display: block;
-  /* Box Model */
   margin-bottom: 5px;
-  /* Text */
   text-align: left;
   color: #333333;
-  /* Fonts */
   font-weight: bold;
 }
 
 /* --- Botones y Pie --- */
 
 .modal-footer {
-  /* Box Model */
   margin-top: 20px;
 }
 
 .modal-footer button {
-  /* Box Model */
   padding: 10px 20px;
   margin: 5px;
   border: none;
   border-radius: 5px;
-  /* Background */
   background-color: #007bff;
-  /* Text */
   color: #ffffff;
-  /* Fonts */
   font-size: 16px;
-  /* Otros */
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .modal-footer button:hover {
-  /* Background */
   background-color: #0056b3;
 }
 
 .btn-rojo {
-  /* Background */
   background-color: #d9534f !important;
-  /* Text */
   color: #ffffff;
 }
 
 .btn-rojo:hover {
-  /* Background */
   background-color: #c9302c !important;
 }
 
 /* --- Utilidades --- */
 
 .oculto {
-  /* Display */
   display: none !important;
 }
 
 #templates {
-  /* Display */
   display: none;
 }
 
@@ -140,20 +109,15 @@
 /* --- Soporte Modo Oscuro (Modales) --- */
 
 body.modo-oscuro #modal-sistema .modal-contenido {
-  /* Box Model */
   border-color: #555555;
-  /* Background */
   background-color: #2d2d2d;
-  /* Text */
   color: #ffffff;
 }
 
 body.modo-oscuro #modal-titulo {
-  /* Text */
   color: #ffffff;
 }
 
 body.modo-oscuro .label-modal {
-  /* Text */
   color: #ffffff;
 }
