@@ -4,14 +4,12 @@
 
 var segundos = 0
 var intervaloTiempo = null
-
 var filas = 8
 var columnas = 8
 var lado = 30
 var nombreJugador = 'Jugador'
 var marcas = 0
 var minas = 10
-
 var tablero = []
 
 var enJuego = true
@@ -63,9 +61,7 @@ function procesarRespuestaModal(result) {
     }
 }
 
-
 // 3. LÓGICA DE DATOS (Tablero y Minas)
-
 
 function ponerMinas() {
     for (let i = 0; i < minas; i++) {
@@ -107,36 +103,29 @@ function generarTableroJuego() {
     contadoresMinas()
 }
 
-
 // 4. LÓGICA DEL JUEGO (Ganar, Perder, Abrir Áreas)
 
 function verificarGanador() {
     for (let f = 0; f < filas; f++) {
         for (let c = 0; c < columnas; c++) {
             if (tablero[c][f].estado !== 'descubierto') {
-                if (tablero[c][f].valor === -1) {
-                    continue
-                } else {
-                    return
-                }
+                if (tablero[c][f].valor === -1) { continue } else { return }
             }
         }
     }
     
-    var tableroHTML = document.getElementById('tablero')
-    tableroHTML.style.background = 'green'
+    var tableroHTML = document.getElementById("tablero")
+    tableroHTML.style.background = "green"
     enJuego = false
     clearInterval(intervaloTiempo)
     sonido_ganador.play()
     sonido_win.play()
 
-    Swal.fire({
-        title: '¡Ganaste!',
-        text: '¡Felicitaciones ' + nombreJugador + '! Tu tiempo fue de ' + segundos + ' segundos.',
-        icon: 'success',
-        confirmButtonText: 'Jugar de nuevo',
-        allowOutsideClick: false
-    }).then(procesarRespuestaModal)
+    var mensaje = '¡Felicitaciones ' + nombreJugador + '!\nTu tiempo fue de ' + segundos + ' segundos.'
+    lanzarModal('¡Ganaste! 🏆', mensaje, false, function() {
+        cerrarModalSistema()
+        nuevoJuego()
+    })
 }
 
 function verificarPerdedor() {
@@ -151,13 +140,11 @@ function verificarPerdedor() {
                     sonido_perdedor.play()
                     sonido_gameover.play()
 
-                    Swal.fire({
-                        title: '¡BOOM!',
-                        text:  'Has perdido, pisaste una mina.',
-                        icon: 'error',
-                        confirmButtonText: 'Intentar de nuevo',
-                        allowOutsideClick: false
-                    }).then(procesarRespuestaModal)
+                    var mensaje = 'Has perdido, pisaste una mina.'
+                    lanzarModal('¡BOOM! 💣', mensaje, false, function() {
+                        cerrarModalSistema()
+                        nuevoJuego()
+                    })
                 }
             }
         }
@@ -195,8 +182,7 @@ function abrirArea(c, f) {
     }
 }
 
-
-// 5. RENDERIZADO (Dibujar en pantalla)
+// 5. DIBUJO DEL TABLERO
 
 function generarTableroHTML() {
     var html = ''
@@ -252,7 +238,6 @@ function refrescarTablero() {
     verificarPerdedor()
     actualizarPanelMinas()
 }
-
 
 // 6. MANEJADORES DE EVENTOS
 
@@ -311,7 +296,6 @@ function añadirEventos() {
     }
 }
 
-
 // 7. CONTROL DEL JUEGO (Lógica Principal)
 
 function reiniciarVariables() {
@@ -334,7 +318,6 @@ function nuevoJuego() {
     refrescarTablero()
 }
 
-
 // 8. INTERFAZ Y CONFIGURACIÓN (Inputs, Ajustes, Inicio)
 
 function aplicarAjustes(result) {
@@ -353,19 +336,27 @@ function aplicarAjustes(result) {
 }
 
 function ajustes() {
-    Swal.fire({
-        title: 'Selecciona la dificultad',
-        input: 'radio',
-        inputOptions: {
-            'facil': 'Fácil (8x8 - 10 minas)',
-            'medio': 'Medio (12x12 - 25 minas)',
-            'dificil': 'Difícil (16x16 - 40 minas)'
-        },
-        inputValue: 'facil',
-        confirmButtonText: 'Jugar',
-        showCancelButton: true,
-        cancelButtonText: 'Cancelar'
-    }).then(aplicarAjustes)
+    var contenidoHTML = document.getElementById('tpl-ajustes').innerHTML
+
+    lanzarModal('Configuración', contenidoHTML, true, function() {
+        var select = document.getElementById('select-dificultad-dinamico')
+        
+        if (!select) return 
+
+        var nivel = select.value
+
+        switch (nivel) {
+            case 'facil':
+                filas = 8; columnas = 8; minas = 10; break;
+            case 'medio':
+                filas = 12; columnas = 12; minas = 25; break;
+            case 'dificil':
+                filas = 16; columnas = 16; minas = 40; break;
+        }
+
+        cerrarModalSistema()
+        nuevoJuego()
+    })
 }
 
 function iniciarJuegoConNombre(result) {
@@ -376,18 +367,23 @@ function iniciarJuegoConNombre(result) {
 }
 
 function pedirNombre() {
-    Swal.fire({
-        title: 'Ingresa tu nombre',
-        input: 'text',
-        inputPlaceholder: 'Nombre del jugador',
-        allowOutsideClick: false,
-        allowEscapeKey: false,
-        inputValidator: function(value) {
-            if (!value || value.length < 3) {
-                return '¡El nombre debe tener al menos 3 letras!'
-            }
+    var contenidoHTML = document.getElementById('tpl-pedir-nombre').innerHTML
+
+    lanzarModal('Bienvenido', contenidoHTML, false, function() {
+        var input = document.getElementById('input-jugador-dinamico')
+        var error = document.getElementById('error-modal-dinamico')
+        var valor = input.value.trim()
+
+        if (valor.length < 3) {
+            error.style.display = 'block'
+            error.textContent = '¡El nombre debe tener al menos 3 letras!'
+        } else {
+            nombreJugador = valor
+            document.getElementById("nombre-jugador").innerHTML = nombreJugador
+            cerrarModalSistema()
+            nuevoJuego()
         }
-    }).then(iniciarJuegoConNombre)
+    })
 }
 
 function iniciarEventosGlobales() {
@@ -431,6 +427,5 @@ function cambiarTema() {
 }
 
 // 9. INICIO DEL JUEGO
-
 iniciarEventosGlobales()
 pedirNombre()
