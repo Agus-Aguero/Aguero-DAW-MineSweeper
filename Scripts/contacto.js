@@ -12,7 +12,7 @@ function limpiarTextoError(small) {
 }
 
 function limpiarErrores() {
-    var mensajesError = document.querySelectorAll('.error-message')
+    var mensajesError = document.querySelectorAll('.mensaje-error')
     mensajesError.forEach(limpiarTextoError)
 }
 

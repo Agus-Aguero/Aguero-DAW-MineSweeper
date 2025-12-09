@@ -3,42 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Stiles/style-contacto.css">
+    <link rel="stylesheet" href="Styles/reset.css">
+    <link rel="stylesheet" href="Styles/style-contacto.css">
     <title>Contacto</title>
 </head>
 <body>
-    <form id="form-suscripcion">
-  <div class="form-container">
-    <div class="form-column">
-      <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" name="nombre" />
-      <small class="error-message" id="error-nombre"></small>
-
-      <label for="apellido">Apellido</label>
-      <input type="text" id="apellido" name="apellido" />
-      <small class="error-message" id="error-apellido"></small>
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" />
-      <small class="error-message" id="error-email"></small>
-
-      <label for="id-comentario">Escriba su mensaje:</label>
-      <textarea id="id-comentario" name="comentario" rows="5" cols="40"></textarea>
-      <small class="error-message" id="error-comentario"></small>
-    </div>
-  </div>
-  <div class="form-submit">
-    <button type="submit">Enviar</button>
-  </div>
-     </form>
-
-  <div id="modal" class="modal oculto">
-    <div class="modal-contenido">
-     <span id="cerrar-modal" class="cerrar">&times;</span>
-     <h2>Resultado de la suscripción</h2>
-     <p id="modal-mensaje"></p>
-    </div>
-  </div>
-  <script src="Scripts/contacto.js"></script>
-</body>
+   <form id="form-suscripcion">
+      <div class="contenedor-formulario">
+        <div class="columna-formulario">
+          
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" />
+          <small class="mensaje-error" id="error-nombre"></small>
+    
+          <label for="apellido">Apellido</label>
+          <input type="text" id="apellido" name="apellido" />
+          <small class="mensaje-error" id="error-apellido"></small>
+    
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" />
+          <small class="mensaje-error" id="error-email"></small>
+    
+          <label for="id-comentario">Escriba su mensaje:</label>
+          <textarea id="id-comentario" name="comentario" rows="5" cols="40"></textarea>
+          <small class="mensaje-error" id="error-comentario"></small>
+        </div>
+      </div>
+      
+      <div class="contenedor-boton">
+        <button type="submit">Enviar</button>
+      </div>
+      <div class="contenedor-boton">
+       <a href="index.html" class="btn-volver">⬅ Volver al Juego</a>
+   </div>
+   </form>
 </html>
